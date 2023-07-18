@@ -632,7 +632,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Material: Solicitar a compras</h5>
+                                <h5 class="modal-title">Material: en stock/inventario</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -933,7 +933,7 @@
 
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Compra de material')
+                modal.find('.modal-title').text('Material: stock/inventario')
                 modal.find('#ot').val(ot)
                 modal.find('#id').val(id)
                 modal.find('#descripcion').val(descripcion)

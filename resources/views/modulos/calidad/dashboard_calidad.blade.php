@@ -465,21 +465,21 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="ot">Cantidad produccion</label>
-                                            <input class="form-control" id="cantpro" name="cantpro" placeholder="" value="" type="text" onlyread>
+                                            <input class="form-control" id="cantpro" name="cantpro" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="">Cant. Scrap</label>
-                                            <input required class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value="" type="number" onlyread>
+                                            <input required  class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value=""  min="1" type="number" onlyread>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="ot">Cant. Retrabajo</label>
-                                            <input required class="form-control" id="cant_retrabajo" name="cant_retrabajo" placeholder="" value="" type="number" onlyread>
+                                            <input required class="form-control" id="cant_retrabajo" name="cant_retrabajo" placeholder="" min="1" value="" type="number" onlyread>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="ot">Cant. Liberada</label>
-                                            <input required class="form-control" id="cant_liberada" name="cant_liberada" placeholder="" value="" type="number" onlyread>
+                                            <input required class="form-control" id="cant_liberada" name="cant_liberada" placeholder="" min="1" value="" type="number" onlyread>
                                         </div>
                                     </div>
                                     <hr>

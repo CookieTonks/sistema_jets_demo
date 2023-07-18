@@ -137,3 +137,4 @@ Route::controller(admin_controller::class)->group(function () {
 Route::get('/exportar_produccion', [App\Http\Controllers\ExportController::class, 'exportar_produccion'])->name('exportar_produccion');
 Route::get('/exportar_ordenes', [App\Http\Controllers\ExportController::class, 'exportar_ordenes'])->name('exportar_ordenes');
 Route::get('/exportar_embarques', [App\Http\Controllers\ExportController::class, 'exportar_embarques'])->name('exportar_embarques');
+Route::get('/exportar_calidad', [App\Http\Controllers\ExportController::class, 'exportar_calidad'])->name('exportar_calidad');

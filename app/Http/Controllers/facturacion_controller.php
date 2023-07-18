@@ -32,7 +32,7 @@ class facturacion_controller extends Controller
         $ordenes = DB::table('orders')
             ->join('jets_rutas', 'orders.id', '=', 'jets_rutas.ot')
             ->where('jets_rutas.sistema_calidad', '=', 'DONE')
-            ->where('jets_rutas.sistema_facturacion', '=', '-')
+            ->where('jets_rutas.sistema_facturacion', '=', 'DONE')
             ->select('orders.*')
             ->get();
 
@@ -51,17 +51,17 @@ class facturacion_controller extends Controller
         $registro_factura = models\orders::where('id', '=', $request->ot)->first();
 
 
-$salidas = models\salidas_embarques::where('ot', '=', $request->ot)
+        $salidas = models\salidas_embarques::where('ot', '=', $request->ot)
             ->where(function ($query) {
                 $query->where('tipo_salida', '=', 'Remision')
-                      ->orWhere('tipo_salida', '=', 'Factura');
+                    ->orWhere('tipo_salida', '=', 'Factura');
             })
             ->sum('cantidad');
 
 
         $salidas = (int)$salidas;
         $oc = (int)$registro_factura->cantidad;
-        
+
 
         if ($salidas === $oc) {
 

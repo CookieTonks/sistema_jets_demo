@@ -119,7 +119,7 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+                                <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -238,7 +238,7 @@
                 </div>
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800"> </h1>
-                    <a href="{{route('ordenes_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
+                    <a href="{{route('exportar_calidad')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
                 </div>
                 <!-- /Title -->
                 <div class="row">
@@ -253,8 +253,12 @@
 
                                                     <th>OT</th>
                                                     <th>Cliente</th>
-                                                    <th>Descripcion</th>
-                                                    <th>Cantidad</th>
+                                                    <th>Tipo Inspeccion</th>
+                                                    <th>Cant. Scrap</th>
+                                                    <th>Cant. Liberdad</th>
+                                                    <th>Cant. Retrabajo</th>
+                                                    <th>Usuario</th>
+                                                    <th>Observaciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -262,19 +266,27 @@
                                                 <tr>
 
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
-                                                    <td>{{$orden->cliente}}</td>
-                                                    <td>{{$orden->descripcion}}</td>
-                                                    <td>{{$orden->cantidad}}</td>
+                                                    <td>{{$orden->order->cliente}}</td>
+                                                    <td>{{$orden->tipo_inspeccion}}</td>
+                                                    <td>{{$orden->cant_scrap}}</td>
+                                                    <td>{{$orden->cant_liberada}}</td>
+                                                    <td>{{$orden->cant_retrabajo}}</td>
+                                                    <td>{{$orden->usuario}}</td>
+                                                    <td>{{$orden->observaciones}}</td>
+
                                                 </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-
                                                     <th>OT</th>
                                                     <th>Cliente</th>
-                                                    <th>Descripcion</th>
-                                                    <th>Cantidad</th>
+                                                    <th>Tipo Inspeccion</th>
+                                                    <th>Cant. Scrap</th>
+                                                    <th>Cant. Liberdad</th>
+                                                    <th>Cant. Retrabajo</th>
+                                                    <th>Usuario</th>
+                                                    <th>Observaciones</th>
                                                 </tr>
                                             </tfoot>
                                         </table>

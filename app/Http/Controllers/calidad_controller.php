@@ -30,12 +30,7 @@ class calidad_controller extends Controller
 
     public function buscador_calidad()
     {
-        $ordenes = DB::table('orders')
-            ->join('jets_rutas', 'orders.id', '=', 'jets_rutas.ot')
-            ->where('jets_rutas.sistema_produccion', '=', 'DONE')
-            ->where('jets_rutas.sistema_calidad', '=', '-')
-            ->select('orders.*')
-            ->get();
+        $ordenes = inspections::with('order')->get();
 
         $notificaciones = Models\notifications::all();
 
@@ -84,7 +79,6 @@ class calidad_controller extends Controller
                 $alta_material->empresa = $orden_datos->empresa;
                 $alta_material->estatus = 'P/ALMACEN';
                 $alta_material->save();
-
             }
 
             //Parcialidad liberada sin tratamiento externo
@@ -110,15 +104,7 @@ class calidad_controller extends Controller
         else if ($request->tipo_inspeccion === 'RETRABAJO') {
 
 
-            $inspections = new models\inspections();
-            $inspections->ot = $request->ot;
-            $inspections->tipo_inspeccion = $request->tipo_inspeccion;
-            $inspections->cant_scrap = $request->cant_scrap;
-            $inspections->cant_liberada = $request->cant_liberada;
-            $inspections->cant_retrabajo = $request->cant_retrabajo;
-            $inspections->usuario = Auth::user()->name;
-            $inspections->observaciones = $request->observaciones;
-            $inspections->save();
+
 
             $reporte = new models\pconforme();
             $reporte->ot = $request->ot;
@@ -139,7 +125,7 @@ class calidad_controller extends Controller
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             $produccion->estatus = 'RETRABAJO';
-                                    $produccion->pr = 0;
+            $produccion->pr = 0;
 
             $produccion->modalidad = 'RETRABAJO';
             $produccion->save();
@@ -163,15 +149,7 @@ class calidad_controller extends Controller
             Storage::disk('public')->putFileAs('retrabajo/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
         } else if ($request->tipo_inspeccion === 'SCRAP') {
 
-            $inspections = new models\inspections();
-            $inspections->ot = $request->ot;
-            $inspections->tipo_inspeccion = $request->tipo_inspeccion;
-            $inspections->cant_scrap = $request->cant_scrap;
-            $inspections->cant_liberada = $request->cant_liberada;
-            $inspections->cant_retrabajo = $request->cant_retrabajo;
-            $inspections->usuario = Auth::user()->name;
-            $inspections->observaciones = $request->observaciones;
-            $inspections->save();
+
 
             $reporte = new models\pconforme();
             $reporte->ot = $request->ot;
@@ -194,7 +172,7 @@ class calidad_controller extends Controller
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             $produccion->estatus = "REGISTRADA";
-                        $produccion->pr = 0;
+            $produccion->pr = 0;
 
             $produccion->modalidad = "SCRAP";
             $produccion->save();
@@ -221,6 +199,15 @@ class calidad_controller extends Controller
             }
         }
 
+        $inspections = new models\inspections();
+        $inspections->ot = $request->ot;
+        $inspections->tipo_inspeccion = $request->tipo_inspeccion;
+        $inspections->cant_scrap = $request->cant_scrap;
+        $inspections->cant_liberada = $request->cant_liberada;
+        $inspections->cant_retrabajo = $request->cant_retrabajo;
+        $inspections->usuario = Auth::user()->name;
+        $inspections->observaciones = $request->observaciones;
+        $inspections->save();
 
 
         return back()->with('mensaje-success', '¡Inpección realizada con exito!');

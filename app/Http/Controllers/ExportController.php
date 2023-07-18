@@ -30,4 +30,9 @@ class ExportController extends Controller
     {
         return Excel::download(new embarques, 'embarques.xlsx');
     }
+
+    public function exportar_calidad()
+    {
+        return Excel::download(new calidad, 'calidad.xlsx');
+    }
 }
