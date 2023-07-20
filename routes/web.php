@@ -138,3 +138,6 @@ Route::get('/exportar_produccion', [App\Http\Controllers\ExportController::class
 Route::get('/exportar_ordenes', [App\Http\Controllers\ExportController::class, 'exportar_ordenes'])->name('exportar_ordenes');
 Route::get('/exportar_embarques', [App\Http\Controllers\ExportController::class, 'exportar_embarques'])->name('exportar_embarques');
 Route::get('/exportar_calidad', [App\Http\Controllers\ExportController::class, 'exportar_calidad'])->name('exportar_calidad');
+Route::get('/exportar_facturacion', [App\Http\Controllers\ExportController::class, 'exportar_facturacion'])->name('exportar_facturacion');
+Route::get('/exportar_ingenieria', [App\Http\Controllers\ExportController::class, 'exportar_ingenieria'])->name('exportar_ingenieria');
+Route::get('/exportar_compras', [App\Http\Controllers\ExportController::class, 'exportar_compras'])->name('exportar_compras');

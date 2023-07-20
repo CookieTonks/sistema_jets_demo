@@ -7,6 +7,8 @@
             <th>Descripcion</th>
             <th>Cantidad</th>
             <th>Vendedor</th>
+            <th>Factura/Remision</th>
+
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,8 @@
             <td>{{$order->descripcion}}</td>
             <td>{{$order->cantidad}}</td>
             <td>{{$order->vendedor}}</td>
+            <td>{{$order->factura}}</td>
+
         </tr>
         @endforeach
     </tbody>

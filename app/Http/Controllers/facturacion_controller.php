@@ -67,6 +67,7 @@ class facturacion_controller extends Controller
 
             $registro_factura->factura = $request->factura;
             $registro_factura->fecha_entregada = $date;
+            $registro_factura->estatus = "FACTURADA";
             $registro_factura->save();
 
             $registro_jets = new models\jets_registros();
