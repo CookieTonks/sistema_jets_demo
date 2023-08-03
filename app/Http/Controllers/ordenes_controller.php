@@ -38,7 +38,7 @@ class ordenes_controller extends Controller
         $orders = Models\orders::all();
         $clientes = models\cliente::orderBy('cliente', 'ASC')->get();
         $usuarios =  models\usuarios::orderBy('cliente', 'ASC')->get();
-        $vendedores =  models\user::where('role', '=', 'Vendedor')->get();
+        $vendedores =  models\user::where('role', '=', 'Vendedor')->orWhere('role', '=', 'Vendedor-Produccion')->get();
 
         return view('modulos.ordenes_trabajo.dashboard', compact('notificaciones', 'vendedores', 'usuarios', 'orders', 'clientes'));
     }
@@ -74,7 +74,6 @@ class ordenes_controller extends Controller
         $alta_orden->monto = $request->monto;
         $alta_orden->vendedor = $request->vendedor;
         $alta_orden->tipo_dibujo = $request->tipo_dibujo;
-        $alta_orden->comentario_diseno = $request->comentario_diseno;
         $alta_orden->salida_produccion = $request->salida_produccion;
         $alta_orden->salida_cliente = $request->salida_cliente;
         $alta_orden->prioridad = $request->prioridad;
@@ -133,7 +132,7 @@ class ordenes_controller extends Controller
             $alta_dibujo->descripcion = $alta_orden->descripcion;
             $alta_dibujo->cliente = $alta_orden->cliente;
             $alta_dibujo->estatus = 'Pendiente';
-            $alta_dibujo->save();
+            $alta_dibujo->comentario = $request->comentarios_diseno;            $alta_dibujo->save();
         }
 
         $alta_ruta = new models\jets_rutas();

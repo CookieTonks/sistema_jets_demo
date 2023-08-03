@@ -29,6 +29,9 @@ class ordenes_middleware
         if (Auth::user()->role == 'Vendedor') {
             return $next($request);
         } 
+         if (Auth::user()->role == 'Vendedor-Produccion') {
+            return $next($request);
+        }
         else 
         {
             return redirect()->route('dashboard');

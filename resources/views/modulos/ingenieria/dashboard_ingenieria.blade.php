@@ -259,6 +259,7 @@
                                                     <th>Descripcion</th>
                                                     <th>Estatus</th>
 
+                                                    <th>Comentario</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -273,6 +274,8 @@
                                                     <td>{{$dibujo->cliente}}</td>
                                                     <td>{{$dibujo->descripcion}}</td>
                                                     <td>{{$dibujo->estatus}}</td>
+                                                                                                        <td>{{$dibujo->comentario}}</td>
+
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -285,6 +288,7 @@
                                                     <th>Cliente</th>
                                                     <th>Descripcion</th>
                                                     <th>Estatus</th>
+                                                    <th>Comentario</th>
                                                 </tr>
                                             </tfoot>
                                         </table>

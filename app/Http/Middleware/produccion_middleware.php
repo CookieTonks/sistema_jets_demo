@@ -28,6 +28,9 @@ class produccion_middleware
         if (Auth::user()->role == 'Administrador') {
             return $next($request);
         }
+         if (Auth::user()->role == 'Vendedor-Produccion') {
+            return $next($request);
+        }
 
             if (Auth::user()->role == 'Supervisor producción') {
                 return $next($request);

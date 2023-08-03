@@ -43,7 +43,7 @@ Route::view('states-city', 'livewire.home');
 Route::get('/dashboard_ordenes', [App\Http\Controllers\ordenes_controller::class, 'dashboard_ordenes'])->name('dashboard_ordenes')->middleware('ordenes_middleware');
 Route::post('/dashboard_ordenes/', [App\Http\Controllers\ordenes_controller::class, 'dashboard_ordenes_register'])->name('dashboard_ordenes_register');
 
-Route::get('/order_pdf/{id}', [App\Http\Controllers\ordenes_controller::class, 'order_pdf'])->name('order_pdf')->middleware('ordenes_middleware');
+Route::get('/order_pdf/{id}', [App\Http\Controllers\ordenes_controller::class, 'order_pdf'])->name('order_pdf');
 Route::get('/edition_order/{id}', [App\Http\Controllers\ordenes_controller::class, 'edition_order'])->name('edition_order')->middleware('ordenes_middleware');
 Route::post('/edicion_order/{id}', [App\Http\Controllers\ordenes_controller::class, 'edicion_order'])->name('edicion_order')->middleware('ordenes_middleware');
 

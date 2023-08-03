@@ -279,6 +279,7 @@
                                                 </th>
                                                 <th>OT</th>
                                                 <th>TIPO</th>
+                                                <th>UM</th>
                                                 <th>MATERIAL</th>
                                                 <th>DESCRIPCION</th>
                                                 <th>OC</th>
@@ -297,6 +298,8 @@
                                                 </td>
                                                 <td>{{$material->ot}}</td>
                                                 <td>{{$material->tipo}}</td>
+                                                                                                <td>{{$material->um}}</td>
+
                                                 <td>{{$material->material}}</td>
                                                 <td>{{$material->descripcion}}</td>
                                                 <td>{{$material->oc}}</td>
